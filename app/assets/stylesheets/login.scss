@@ -1,0 +1,17 @@
+// Place all the styles related to the login controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron {
+	margin: 2%;
+	
+	.description {
+		font-style: italic;
+		font-size: 16px;
+	}
+}
+
+.panel {
+	margin-left: 5%;
+	margin-right: 5%;
+}
