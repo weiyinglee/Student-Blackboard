@@ -2,21 +2,22 @@
   <div class="panel panel-info">
     <div class="panel-heading">User Register</div>
     <div class="panel-body">
-      <form>
+      <%= form_for @user, url: "/register", html: { method: :post} do |f| %>
         <div class="form-group">
-          <label for="new-account">Create Account</label>
-          <input type="email" class="form-control" id="new-account" placeholder="New User Name/Account">
+          <label for="new-account"><%= f.label :account, "New Account" %></label>
+          <%= f.text_field :account, :class => "form-control" ,:id => "new-account", :placeholder => "Enter new account" %>
         </div>
         <div class="form-group">
-          <label for="new-password">Create Password</label>
-          <input type="password" class="form-control" id="new-password" placeholder="New Password">
+          <label for="new-password"><%= f.label :password, "New Password" %></label>
+          <%= f.text_field :password, :class => "form-control", :id => "new-password", :placeholder => "Enter new password" %>
         </div>
         <div class="form-group">
           <label for="new-password2">Confirm Password</label>
           <input type="password" class="form-control" id="new-password2" placeholder="Enter password again">
         </div>
-        <button class="btn btn-primary">Register</button>
-      </form>
+        <%= f.submit :class => "btn btn-primary" %>
+      <% end %>
+
     </div>
     <div class="panel-footer">
       <h5>Already a user? Let's go <a href="/">Login</a> now!</h5>

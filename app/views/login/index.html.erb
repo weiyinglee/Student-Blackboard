@@ -8,17 +8,17 @@
   <div class="panel panel-info">
     <div class="panel-heading">User Login</div>
     <div class="panel-body">
-      <form>
+      <%= form_for(:login, url: '/') do |f| %>
         <div class="form-group">
-          <label for="account">Account</label>
-          <input type="email" class="form-control" id="account" placeholder="User Name/Account">
+          <label for="account"><%= f.label :account, "Account" %></label>
+          <%= f.text_field :account, :class => "form-control" ,:id => "account", :placeholder => "Enter account" %>
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control" id="password" placeholder="Password">
+          <label for="password"><%= f.label :password, "Password" %></label>
+          <%= f.text_field :password, :class => "form-control", :id => "password", :placeholder => "Enter password" %>
         </div>
-        <button class="btn btn-primary">Login</button>
-      </form>
+        <%= f.submit :class => "btn btn-primary"%>
+      <% end %>
     </div>
   <div>
 <div>
