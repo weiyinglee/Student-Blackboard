@@ -18,13 +18,14 @@ class RegisterController < ApplicationController
 			redirect_to '/main'
 		else
 			session[:error] = true
-			redirect_to '/'
+			redirect_to '/register'
 		end
+
 	end
 
 	private 
 
 		def user_params
-			params.require(:user).permit(:account, :password)
+			params.require(:user).permit(:account, :password, :password_confirmation)
 		end
 end

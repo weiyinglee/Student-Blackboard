@@ -7,7 +7,7 @@
       <% if session[:error] %>
         <div class="alert alert-danger alert-dismissible" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <strong>Register Error!</strong> The user account might already exist. Try again!
+          <strong>Register Error!</strong> Something went wrong. Try again!
         </div>
         <% session[:error] = nil %>
       <% end %>
@@ -22,13 +22,15 @@
           <label for="new-password"><%= f.label :password, "New Password" %></label>
           <%= f.password_field :password, :class => "form-control", :id => "new-password", :placeholder => "Enter new password" %>
         </div>
+        <!--
         <div class="form-group">
           <label for="new-password2"><%= f.label :password, "Confirm Password" %></label>
           <%= f.password_field :password_confirmation, :class => "form-control", :id => "new-password2", :placeholder => "Enter new password again" %>
         </div>
+      -->
         <%= f.submit "Register", :class => "btn btn-primary" %>
       <% end %>
-
+      
     </div>
     <div class="panel-footer">
       <h5>Already a user? Let's go <a href="/">Login</a> now!</h5>
