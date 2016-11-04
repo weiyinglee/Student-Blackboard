@@ -1,5 +1,8 @@
 class LoginController < ApplicationController
 	def index
+		if session[:user_id]
+			redirect_to '/main'
+		end
 	end
 
 	def create
@@ -8,6 +11,8 @@ class LoginController < ApplicationController
 			session[:user_id] = @user.id
 			redirect_to '/main'
 		else
+			#save the error message to session
+			session[:error] = true
 			redirect_to '/'
 		end
 	end
