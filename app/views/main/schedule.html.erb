@@ -6,7 +6,7 @@
   <!-- Class setup row -->
   <div class="row">
   	<!-- Input fields -->
-  	<div class="col-md-6">
+  	<div class="col-md-5">
   		<div class="panel panel-default">
   			<div class="panel-body">
 		  		<%= form_for @schedule, url: '/main/class_schedule', html: { method: :post} do |f| %>
@@ -39,7 +39,7 @@
   		</div>
   	</div>
   	<!-- class column -->
-  	<div class="col-md-6">
+  	<div class="col-md-7">
   		<div class="panel panel-info">
   			<div class="panel-heading">My Classes</div>
   			<div class="panel-body">
@@ -61,15 +61,51 @@
 				  	    			<td><span class="class-info"><%= schedule.classroom %></span></td>
 				  	    			<td><span class="class-info"><%= schedule.professor %></span></td>
 				  	    			<td>
-				  	    				<span class="class-info"><%= schedule.hour %></span>:
-				  	    				<span class="class-info"><%= schedule.minute %></span>
+				  	    				<span class="class-info">
+				  	    					<!-- Handle the hour format -->
+				  	    					<% if schedule.hour.length < 2 %>
+				  	    						<!-- The hour is single digit, add another 0 in front of it -->
+				  	    						0<%= schedule.hour %>
+				  	    					<% else %>
+				  	    						<%= schedule.hour %>
+				  	    					<% end %>
+				  	    				</span>:
+				  	    				<span class="class-info">
+				  	    					<!-- Handle the minute format -->
+				  	    					<% if schedule.minute.length < 2 %>
+				  	    						<!-- The minute is single digit, add another 0 in front of it -->
+				  	    						0<%= schedule.minute %>
+				  	    					<% else %>
+				  	    						<%= schedule.minute %>
+				  	    					<% end %>
+				  	    				</span>
+
 				  	    			</td>
 				  	    			<td>
-				  	    				<span class="class-info"><%= schedule.hour_end %></span>:
-				  	    				<span class="class-info"><%= schedule.minute_end %></span>
+				  	    				<span class="class-info">
+				  	    					<!-- Handle the hour format -->
+				  	    					<% if schedule.hour_end.length < 2 %>
+				  	    						<!-- The hour is single digit, add another 0 in front of it -->
+				  	    						0<%= schedule.hour_end %>
+				  	    					<% else %>
+				  	    						<%= schedule.hour_end %>
+				  	    					<% end %>
+				  	    				</span>:
+				  	    				<span class="class-info">
+				  	    					<!-- Handle the minute format -->
+				  	    					<% if schedule.minute_end.length < 2 %>
+				  	    						<!-- The minute is single digit, add another 0 in front of it -->
+				  	    						0<%= schedule.minute_end %>
+				  	    					<% else %>
+				  	    						<%= schedule.minute_end %>
+				  	    					<% end %>
+				  	    				</span>
 				  	    			</td>
 				  	    			<td>
-				  	    				<%= button_to "Remove", "/main/class_schedule", :class => "btn btn-danger btn-xs", method: :delete %>
+				  	    				<!-- REMOVAL button, using GET method to fetch the schedule id and delete it -->
+				  	    				<%= button_to "/main/class_schedule/#{schedule.id}", :class => "btn btn-danger btn-xs class-delete-button", method: :get do %>
+				  	    					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				  	    				<% end %>
 				  	    			</td>
 					  	    	</tr>
 				  	    <% end %>

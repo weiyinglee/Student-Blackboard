@@ -29,9 +29,9 @@ class MainController < ApplicationController
 
 	# DELETE for class schedule
 	def schedule_destroy
-		#@schedule = Schedule.find_by_classname(params[:main][:classname])
-		#@schedule.destroy
-		#redirect_to '/main/class_schedule'
+		@schedule = Schedule.find(params[:id])
+		@schedule.destroy
+		redirect_to '/main/class_schedule'
 	end
 
 	# GET for personal note page
