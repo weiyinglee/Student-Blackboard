@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 	get "/main/gpa_calculator", to: "main#calculator", as: "calculator"
 
 	post "/register", to: "register#create"
-	post "/", to: 'login#create'
+	post "/", to: "login#create"
+	post "/main/class_schedule", to: "main#schedule_create"
 	
 	get "/logout", to: "login#destroy"
 

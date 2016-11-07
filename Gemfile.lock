@@ -39,7 +39,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
-    autoprefixer-rails (6.5.1)
+    autoprefixer-rails (6.5.2)
       execjs
     bcrypt (3.1.11-x86-mingw32)
     bootstrap-sass (3.2.0.2)
@@ -51,7 +51,7 @@ GEM
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.10.0)
+    coffee-script-source (1.8.0)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
     erubis (2.7.0)
@@ -131,11 +131,11 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2016.7)
+    tzinfo-data (1.2016.9)
       tzinfo (>= 1.0.0)
-    uglifier (3.0.2)
+    uglifier (3.0.3)
       execjs (>= 0.3.0, < 3)
-    web-console (3.3.1)
+    web-console (3.4.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
       debug_inspector
@@ -153,6 +153,8 @@ DEPENDENCIES
   bootstrap-sass (~> 3.2.0)
   byebug
   coffee-rails (~> 4.2)
+  coffee-script-source (= 1.8.0)
+  execjs
   jbuilder (~> 2.5)
   jquery-rails
   puma (~> 3.0)

@@ -10,6 +10,9 @@ class MainController < ApplicationController
 		@user = load_user
 	end
 
+	def schedule_create
+	end
+
 	def note
 		@user = load_user
 	end

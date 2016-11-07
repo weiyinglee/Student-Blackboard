@@ -3,7 +3,38 @@
 
 <!-- CONTENT -->
 <div class="body">
-  <h1>Schedule</h1>
+  <div class="row">
+  	<div class="col-md-8">
+  		<%= form_for(:main, url: '/main/class_schedule') do |f| %>
+  			<div class="form-group">
+	          <label for="professor"><%= f.label :professor, "Professor" %></label>
+	          <%= f.text_field :professor, :class => "form-control" ,:id => "professor", :placeholder => "Professor Name" %>
+	        </div>
+	        <div class="form-group">
+	          <label for="class-name"><%= f.label :classname, "Class Name" %></label>
+	          <%= f.text_field :classname, :class => "form-control", :id => "class-name", :placeholder => "Class Name" %>
+	        </div>
+		    <div class="form-group">
+	          <label for="class-room"><%= f.label :classroom, "Class Room" %></label>
+	          <%= f.text_field :classroom, :class => "form-control" ,:id => "class-room", :placeholder => "Class Room" %>
+	        </div>
+	        <div class="form-group">
+	          <label for="start-time"><%= f.label :hour, "Start Time" %></label>
+	          <%= f.text_field :hour, :class => "form-control", :id => "start-time", :placeholder => "Hour" %>
+	          <%= f.text_field :minute, :class => "form-control", :id => "start-time", :placeholder => "Minute" %>
+	        </div>
+	        <div class="form-group">
+	          <label for="end-time"><%= f.label :hour_end, "End Time" %></label>
+	          <%= f.text_field :hour_end, :class => "form-control" , :id => "end-time", :placeholder => "Hour" %>
+	          <%= f.text_field :minute_end, :class => "form-control", :id => "end-time", :placeholder => "Minute" %>
+	        </div>
+	        <%= f.submit "Add", :class => "btn btn-primary" %>
+  		<% end %>
+  	</div>
+  	<div class="col-md-4">
+
+  	</div>
+  </div>
 </div>
 
 <!-- Footer rendering -->
