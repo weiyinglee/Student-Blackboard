@@ -3,10 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .body {
+	height: 100%;
+	margin: 3%;
+	margin-bottom: 250px;
+	
+	.form-group {
+		padding: 0;
+	}
+
+	.user-id-field {
+		display:none;
+	}
+
+	.class-delete-button {
+		background: rgba(0,0,0,0);
+		border: none;
+		color: red;
+	}
 }
 
 .footer {
-	position: absolute;
+	position: relative;
 	height: 250px;
 	width: 100%;
 	bottom: 0;

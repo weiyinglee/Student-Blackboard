@@ -3,37 +3,93 @@
 
 <!-- CONTENT -->
 <div class="body">
+  <!-- Class setup row -->
   <div class="row">
-  	<div class="col-md-8">
-  		<%= form_for(:main, url: '/main/class_schedule') do |f| %>
-  			<div class="form-group">
-	          <label for="professor"><%= f.label :professor, "Professor" %></label>
-	          <%= f.text_field :professor, :class => "form-control" ,:id => "professor", :placeholder => "Professor Name" %>
-	        </div>
-	        <div class="form-group">
-	          <label for="class-name"><%= f.label :classname, "Class Name" %></label>
-	          <%= f.text_field :classname, :class => "form-control", :id => "class-name", :placeholder => "Class Name" %>
-	        </div>
-		    <div class="form-group">
-	          <label for="class-room"><%= f.label :classroom, "Class Room" %></label>
-	          <%= f.text_field :classroom, :class => "form-control" ,:id => "class-room", :placeholder => "Class Room" %>
-	        </div>
-	        <div class="form-group">
-	          <label for="start-time"><%= f.label :hour, "Start Time" %></label>
-	          <%= f.text_field :hour, :class => "form-control", :id => "start-time", :placeholder => "Hour" %>
-	          <%= f.text_field :minute, :class => "form-control", :id => "start-time", :placeholder => "Minute" %>
-	        </div>
-	        <div class="form-group">
-	          <label for="end-time"><%= f.label :hour_end, "End Time" %></label>
-	          <%= f.text_field :hour_end, :class => "form-control" , :id => "end-time", :placeholder => "Hour" %>
-	          <%= f.text_field :minute_end, :class => "form-control", :id => "end-time", :placeholder => "Minute" %>
-	        </div>
-	        <%= f.submit "Add", :class => "btn btn-primary" %>
-  		<% end %>
+  	<!-- Input fields -->
+  	<div class="col-md-6">
+  		<div class="panel panel-default">
+  			<div class="panel-body">
+		  		<%= form_for @schedule, url: '/main/class_schedule', html: { method: :post} do |f| %>
+		  			<%= f.text_field :user, :class => "user-id-field", :value => @user.account %>
+		  			<div class="form-group">
+			          <label for="professor"><%= f.label :professor, "Professor" %></label>
+			          <%= f.text_field :professor, :class => "form-control" ,:id => "professor", :placeholder => "Professor Name" %>
+			        </div>
+			        <div class="form-group">
+			          <label for="class-name"><%= f.label :classname, "Class Name" %></label>
+			          <%= f.text_field :classname, :class => "form-control", :id => "class-name", :placeholder => "Class Name" %>
+			        </div>
+				    <div class="form-group">
+			          <label for="class-room"><%= f.label :classroom, "Class Room" %></label>
+			          <%= f.text_field :classroom, :class => "form-control" ,:id => "class-room", :placeholder => "Class Room" %>
+			        </div>
+			        <div class="form-group">
+			          <label for="start-time"><%= f.label :hour, "Start Time" %></label>
+			          <%= f.number_field :hour, :min => 0, :max => 23, :class => "form-control", :id => "start-time", :placeholder => "Hour" %>
+			          <%= f.number_field :minute, :min => 0, :max => 59, :class => "form-control", :id => "start-time", :placeholder => "Minute" %>
+			        </div>
+			        <div class="form-group">
+			          <label for="end-time"><%= f.label :hour_end, "End Time" %></label>
+			          <%= f.number_field :hour_end, :min => 0, :max => 23, :class => "form-control" , :id => "end-time", :placeholder => "Hour" %>
+			          <%= f.number_field :minute_end, :min => 0, :max => 59, :class => "form-control", :id => "end-time", :placeholder => "Minute" %>
+			        </div>
+			        <%= f.submit "Add Class", :class => "btn btn-primary" %>
+		  		<% end %>
+	  		</div>
+  		</div>
   	</div>
-  	<div class="col-md-4">
+  	<!-- class column -->
+  	<div class="col-md-6">
+  		<div class="panel panel-info">
+  			<div class="panel-heading">My Classes</div>
+  			<div class="panel-body">
+  				<table class="table table-border">
+  					<tr>
+  						<th>Class Name</th>
+  						<th>Class Room</th>
+  						<th>Instructor</th>
+  						<th>Start Time</th>
+  						<th>End Time</th>
+  						<th></th>
+  					</tr>
+  					<!-- Loop all the schedule in database -->
+	  			    <% @schedules.each do |schedule| %>
+	  			    	<!-- use if statement to filter out the logged in user's schedule but not other ppl's -->
+	  			    	<% if schedule.user == @user.account %>
+				  	    		<tr>
+				  	    			<td><span class="class-info"><%= schedule.classname %></span></td>
+				  	    			<td><span class="class-info"><%= schedule.classroom %></span></td>
+				  	    			<td><span class="class-info"><%= schedule.professor %></span></td>
+				  	    			<td>
+				  	    				<span class="class-info"><%= schedule.hour %></span>:
+				  	    				<span class="class-info"><%= schedule.minute %></span>
+				  	    			</td>
+				  	    			<td>
+				  	    				<span class="class-info"><%= schedule.hour_end %></span>:
+				  	    				<span class="class-info"><%= schedule.minute_end %></span>
+				  	    			</td>
+				  	    			<td>
+				  	    				<%= button_to "Remove", "/main/class_schedule", :class => "btn btn-danger btn-xs", method: :delete %>
+				  	    			</td>
+					  	    	</tr>
+				  	    <% end %>
+				    <% end %>
+  				</table>
+  			</div>
+  		</div>
+  	</div>
+  </div>
 
-  	</div>
+  <!-- schedule table row -->
+  <div class="row">
+  	<div class="col">
+  		<div class="panel panel-success">
+  			<div class="panel-heading">Weekly Schedule</div>
+  			<div class="panel-body">
+
+  			</div>
+  		</div>
+  	</div>	
   </div>
 </div>
 

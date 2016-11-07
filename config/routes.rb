@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 	post "/main/class_schedule", to: "main#schedule_create"
 	
 	get "/logout", to: "login#destroy"
+	delete "/main/class_schedule", to: "main#schedule_destroy"
 
 	root "login#index"
 end
