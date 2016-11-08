@@ -62,6 +62,6 @@ class MainController < ApplicationController
 
 		#permission for POST
 		def schedule_params
-			params.require(:schedule).permit(:user, :professor, :classname, :classroom, :hour, :minute, :hour_end, :minute_end)
+			params.require(:schedule).permit(:user, :professor, :classname, :classroom, :day, :hour, :minute, :hour_end, :minute_end)
 		end
 end

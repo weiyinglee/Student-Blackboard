@@ -23,6 +23,10 @@
 			          <label for="class-room"><%= f.label :classroom, "Class Room" %></label>
 			          <%= f.text_field :classroom, :class => "form-control" ,:id => "class-room", :placeholder => "Class Room" %>
 			        </div>
+			      	<div class="form-group">
+			          <label for="class-days"><%= f.label :day, "Class Days" %></label>
+			          <%= f.text_field :day, :class => "form-control" ,:id => "class-days", :placeholder => "MWF, TUTH..etc" %>
+			        </div>
 			        <div class="form-group">
 			          <label for="start-time"><%= f.label :hour, "Start Time" %></label>
 			          <%= f.number_field :hour, :min => 0, :max => 23, :class => "form-control", :id => "start-time", :placeholder => "Hour" %>
@@ -43,11 +47,12 @@
   		<div class="panel panel-info">
   			<div class="panel-heading">My Classes</div>
   			<div class="panel-body">
-  				<table class="table table-border">
+  				<table class="table">
   					<tr>
   						<th>Class Name</th>
   						<th>Class Room</th>
   						<th>Instructor</th>
+  						<th>Class Days</th>
   						<th>Start Time</th>
   						<th>End Time</th>
   						<th></th>
@@ -60,6 +65,7 @@
 				  	    			<td><span class="class-info"><%= schedule.classname %></span></td>
 				  	    			<td><span class="class-info"><%= schedule.classroom %></span></td>
 				  	    			<td><span class="class-info"><%= schedule.professor %></span></td>
+				  	    			<td><span class="class-info"><%= schedule.day %></span></td>
 				  	    			<td>
 				  	    				<span class="class-info">
 				  	    					<!-- Handle the hour format -->
@@ -117,16 +123,28 @@
   </div>
 
   <!-- schedule table row -->
+  <!-- get rid of this for now because its too complicated
   <div class="row">
   	<div class="col">
   		<div class="panel panel-success">
   			<div class="panel-heading">Weekly Schedule</div>
   			<div class="panel-body">
-
+  				<table class="table table-bordered">
+  					<tr>
+  						<th>Time</th>
+  						<th>Mon</th>
+  						<th>Tue</th>
+  						<th>Wed</th>
+  						<th>Thu</th>
+  						<th>Fri</th>
+  					</tr>
+  					
+  				</table>
   			</div>
   		</div>
   	</div>	
   </div>
+	-->
 </div>
 
 <!-- Footer rendering -->

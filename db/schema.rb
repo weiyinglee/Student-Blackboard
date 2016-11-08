@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107030428) do
+ActiveRecord::Schema.define(version: 20161108062509) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "content"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20161107030428) do
     t.string   "professor"
     t.string   "classname"
     t.string   "classroom"
+    t.string   "day"
     t.string   "hour"
     t.string   "minute"
     t.string   "hour_end"
