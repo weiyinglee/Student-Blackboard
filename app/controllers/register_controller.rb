@@ -13,11 +13,17 @@ class RegisterController < ApplicationController
 	def create
 		@user = User.new(user_params)
 
-		if @user.save
-			session[:user_id] = @user.id
-			redirect_to '/main'
+		if params[:account] != "" && params[:password]
+
+			if @user.save
+				session[:user_id] = @user.id
+				redirect_to '/main'
+			else
+				session[:error] = true
+				redirect_to '/register'
+			end
 		else
-			session[:error] = true
+			session[:empty_err] = true
 			redirect_to '/register'
 		end
 

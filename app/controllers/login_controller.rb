@@ -7,12 +7,20 @@ class LoginController < ApplicationController
 
 	def create
 		@user = User.find_by_account(params[:login][:account])
-		if @user && @user.authenticate(params[:login][:password])
-			session[:user_id] = @user.id
-			redirect_to '/main'
+
+		if params[:login][:account] != "" && params[:login][:password] != ""
+
+			if @user && @user.authenticate(params[:login][:password])
+				session[:user_id] = @user.id
+				redirect_to '/main'
+			else
+				#save the error message to session
+				session[:error] = true
+				redirect_to '/'
+			end
 		else
 			#save the error message to session
-			session[:error] = true
+			session[:empty_err] = true
 			redirect_to '/'
 		end
 	end

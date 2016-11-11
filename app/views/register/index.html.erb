@@ -12,6 +12,15 @@
         <% session[:error] = nil %>
       <% end %>
 
+      <!-- Generate Error message when its empty -->
+      <% if session[:empty_err] %>
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Login Error</strong> The input fields can not be empty. Try again!
+        </div>
+        <% session[:empty_err] = nil %>
+      <% end %>
+
       <!-- Register form -->
       <%= form_for @user, url: "/register", html: { method: :post} do |f| %>
         <div class="form-group">
@@ -22,12 +31,12 @@
           <label for="new-password"><%= f.label :password, "New Password" %></label>
           <%= f.password_field :password, :class => "form-control", :id => "new-password", :placeholder => "Enter new password" %>
         </div>
-        <!--
-        <div class="form-group">
+        
+<!--         <div class="form-group">
           <label for="new-password2"><%= f.label :password, "Confirm Password" %></label>
           <%= f.password_field :password_confirmation, :class => "form-control", :id => "new-password2", :placeholder => "Enter new password again" %>
-        </div>
-      -->
+        </div> -->
+      
         <%= f.submit "Register", :class => "btn btn-primary" %>
       <% end %>
       
