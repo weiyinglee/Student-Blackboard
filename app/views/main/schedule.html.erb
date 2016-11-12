@@ -9,6 +9,24 @@
   	<div class="col-md-5">
   		<div class="panel panel-default">
   			<div class="panel-body">
+  				  <!-- Generate error message -->
+		          <% if session[:error]  %>
+		            <div class="alert alert-danger alert-dismissible" role="alert">
+		              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		              <strong>Error!</strong>Cannot save to database!
+		            </div>
+		            <% session[:error] = nil %>
+		          <% end %>
+
+		          <!-- Generate error message -->
+		          <% if session[:empty_err]  %>
+		            <div class="alert alert-danger alert-dismissible" role="alert">
+		              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		              <strong>Error!</strong>The input field cannot be empty!
+		            </div>
+		            <% session[:empty_err] = nil %>
+		          <% end %>
+		          
 		  		<%= form_for @schedule, url: '/main/class_schedule', html: { method: :post} do |f| %>
 		  			<%= f.text_field :user, :class => "user-id-field", :value => @user.account %>
 		  			<div class="form-group">

@@ -19,17 +19,32 @@ class MainController < ApplicationController
 	def schedule_create
 		@schedule = Schedule.new(schedule_params)
 
-		if @schedule.save
-			redirect_to '/main/class_schedule'
+		if params[:schedule][:professor] != "" && 
+			params[:schedule][:classname] != "" &&
+			params[:schedule][:classroom] != "" &&
+			params[:schedule][:day] != "" 
+			params[:schedule][:hour] != "" &&
+			params[:schedule][:minute] != "" &&
+			params[:schedule][:hour_end] != "" &&
+			params[:schedule][:minute_end] != ""
+
+			if @schedule.save
+				redirect_to '/main/class_schedule'
+			else
+				#show error message
+				session[:error] = true
+				redirect_to '/main/class_schedule'
+			end
 		else
 			#handle error message here
+			session[:empty_err] = true
 			redirect_to '/main/class_schedule'
 		end
 	end
 
 	# DELETE for class schedule
 	def schedule_destroy
-		@schedule = Schedule.find(params[:id])
+		@schedule = Schedule.find(params[:schedule][:id])
 		@schedule.destroy
 		redirect_to '/main/class_schedule'
 	end
