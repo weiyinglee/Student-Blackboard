@@ -11,10 +11,12 @@ Rails.application.routes.draw do
 	post "/register", to: "register#create"
 	post "/", to: "login#create"
 	post "/main/class_schedule", to: "main#schedule_create"
+	post "/main/personal_note", to: "main#note_create"
 	
 	# DELETE (for convenience, using GET method instead)
 	get "/logout", to: "login#destroy"
 	get "/main/class_schedule/:id", to: "main#schedule_destroy"
+	get "/main/personal_note/:id", to:"main#note_destroy"
 
 	root "login#index"
 end

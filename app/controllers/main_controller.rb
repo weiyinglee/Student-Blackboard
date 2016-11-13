@@ -6,6 +6,7 @@ class MainController < ApplicationController
 	def index
 		@user = load_user
 		@schedules = Schedule.all
+		@notes = Note.all
 	end
 
 	# GET for class schedule page
@@ -52,7 +53,31 @@ class MainController < ApplicationController
 	# GET for personal note page
 	def note
 		@user = load_user
+		@notes = Note.all
+		@note = Note.new
 	end
+
+	# Create a new row in Note tables
+	# POST(create) for class note. When you click "Submit"
+	def note_create
+		@note = Note.new(note_params)
+
+		if @note.save
+			redirect_to '/main/personal_note'
+		else
+			#handle error message here
+			redirect_to '/main/personal_note'
+		end
+	end
+
+	# DELETE for class note
+	def note_destroy
+		@note = Note.find(params[:id])
+		@note.destroy
+		redirect_to '/main/personal_note'
+	end
+
+
 
 	# GET for gpa calculator page
 	def calculator
@@ -79,4 +104,9 @@ class MainController < ApplicationController
 		def schedule_params
 			params.require(:schedule).permit(:user, :professor, :classname, :classroom, :day, :hour, :minute, :hour_end, :minute_end)
 		end
+
+		def note_params
+			params.require(:note).permit(:user,:month, :day, :content)
+		end
+
 end

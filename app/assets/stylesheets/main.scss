@@ -22,6 +22,16 @@
 	}
 }
 
+.nav > .navbar-nav {
+	ul {
+		li {
+			a {
+				color: white;
+			}
+		}
+	}
+}
+
 .footer {
 	position: relative;
 	height: 250px;
