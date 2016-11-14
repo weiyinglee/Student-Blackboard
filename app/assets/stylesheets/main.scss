@@ -12,6 +12,27 @@ $bodyNoteBG: #F9D4E3;
 $bodyClassBG: #EFF9D4;
 $bodyGPABG: #EFF9D4;
 
+.schedule-header {
+	color: green;
+	background-color: #ccffcc;
+	font-weight: bold;
+	font-family: fantasy;
+	font-style: italic;
+	text-align: center;
+}
+
+.note-header {
+	@extend .schedule-header;
+	color: darkred;
+	background-color: #ffe6b3;
+}
+
+.calculate-header {
+	@extend .schedule-header;
+	color: darkblue;
+	background-color: #ccffff;
+}
+
 .body {
 	height: 100%;
 	margin: 3%;
