@@ -10,7 +10,7 @@ $hoverColor: yellow;
 $bodyBG: #EFF9D4;
 $bodyNoteBG: #F9D4E3;
 $bodyClassBG: #EFF9D4;
-$bodyGPABG: #EFF9D4;
+$bodyGPABG: #e6f3ff;
 
 .schedule-header {
 	color: green;
@@ -77,6 +77,11 @@ $bodyGPABG: #EFF9D4;
 .body-gpa {
 	@extend .body;
 	background: $bodyGPABG;
+	#gpa-result {
+		font-size: 48px;
+		font-weight: bold;
+		text-align: center;
+	}
 
 }
 

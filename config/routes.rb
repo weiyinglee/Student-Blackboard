@@ -12,7 +12,8 @@ Rails.application.routes.draw do
 	post "/", to: "login#create"
 	post "/main/class_schedule", to: "main#schedule_create"
 	post "/main/personal_note", to: "main#note_create"
-	
+	post "/main/gpa_calculator", to: "main#calculator"
+
 	# DELETE (for convenience, using GET method instead)
 	get "/logout", to: "login#destroy"
 	get "/main/class_schedule/:id", to: "main#schedule_destroy"

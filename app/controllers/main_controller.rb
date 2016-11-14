@@ -82,6 +82,23 @@ class MainController < ApplicationController
 	# GET for gpa calculator page
 	def calculator
 		@user = load_user
+
+		@schedules = Schedule.all
+		@total_grades = 0
+		@schedules.each do |s|
+		if s.user == @user.account
+				@total_grades = @total_grades + 1
+			end
+		end
+		@numbered_grades = []
+		@total = 0.0
+		@gpa = 0.0
+		(0..(@total_grades - 1)).each do |i|
+			@numbered_grade = convert_to_number(params[:"grade#{i}"])
+			@numbered_grades << @numbered_grade
+			@total = @total + @numbered_grade
+		end
+		@gpa = @total / @total_grades
 	end
 
 	'''
@@ -107,6 +124,37 @@ class MainController < ApplicationController
 
 		def note_params
 			params.require(:note).permit(:user,:month, :day, :content)
+		end
+		
+		#convert letter grade to number
+		def convert_to_number(letter_grade)
+			grade = 0;
+			case letter_grade
+			when "A"
+				grade = 4.0
+			when "A-"
+				grade = 3.7
+			when "B+"
+				grade = 3.3
+			when "B"
+				grade = 3.0
+			when "B-"
+				grade = 2.7
+			when "C+"
+				grade = 2.3
+			when "C"
+				grade = 2.0
+			when "C-"
+				grade = 1.7
+			when "D"
+				grade = 1.0
+			when "F"
+				grade = 0.0
+			else
+				puts " "
+			end
+
+			return grade
 		end
 
 end

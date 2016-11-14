@@ -7,7 +7,61 @@
 
 <!-- CONTENT -->
 <div class="body-gpa">
-  <h1>GPA CALCULATOR</h1>
+    <div class="row">
+	  	<div class="col-md-8">
+	  		<div class="panel panel-primary">
+	  			<div class="panel-heading">GPA Calculator</div>
+	  			<div class="panel-body">
+					<div class="column-content">
+					  	<% @temp_grades = [] %>
+					  	<% @temp_count = 0 %>
+					  	<% @bool = false %>
+					  	
+					  	<%= form_tag(url: '/main/gpa_calculator', :method => 'get' ) do %>
+						  	
+						  	<!-- Class Name -->
+						  	<% @schedules.each do |schedule| %>
+							  	<% if schedule.user == @user.account %>
+								  	<li>
+								  		<span class="class-info"><%= schedule.classname %></span>
+								  		<%= text_field_tag :"grade#{@temp_count}", nil, :placeholder => "Type A, B, C, D, or F" %>
+
+								  		<% @temp_grades << params[:"grade#{@temp_count}"] %>
+								  		<% @temp_count = @temp_count + 1 %>
+								  	</li>
+							  	<% end %>
+							<% end %>
+						  	
+						  	<!-- button gpa -->
+						  	<div class="panel-body">
+						  		<%= submit_tag 'Calaulate!', :class => "btn btn-primary" %>
+						  	</div>
+					  	<% end %>
+					</div> 
+	  			</div>
+	  		</div>
+	  	</div>
+
+	  	<div class="col-md-4">
+	  		<div class="panel panel-primary">
+	  			<div class="panel-heading">Your GPA</div>
+	  			<div class="panel-body">
+	  				<span id="gpa-result">
+				  		<% @temp_grades.each do |g| %>
+				  			<% if g != nil %>
+				  				<% @bool = true %>
+				  			<% end %>
+				  		<% end %>
+				  		
+				  		<% if @bool == true %>
+				  			<%= @gpa %>
+				  		<% end %>
+			  		</span>	  				
+	  			</div>
+	  		</div>
+	  	</div>
+
+    </div>
 </div>
 
 <!-- Footer rendering -->
