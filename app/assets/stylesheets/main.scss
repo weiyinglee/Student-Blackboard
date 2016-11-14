@@ -2,11 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$footerColor: #FFC233;
+$navbarColor: #33C6FF;
+$linkColor: white;
+$logoColor: white;
+$hoverColor: yellow;
+$bodyBG: #EFF9D4;
+$bodyNoteBG: #F9D4E3;
+$bodyClassBG: #EFF9D4;
+$bodyGPABG: #EFF9D4;
+
 .body {
 	height: 100%;
 	margin: 3%;
 	margin-bottom: 250px;
-	
+
 	.form-group {
 		padding: 0;
 	}
@@ -20,16 +30,64 @@
 		border: none;
 		color: red;
 	}
+
+	.item-name {
+		font-size: 24px;
+		font-family: cursive;
+	}
+
+	.page-title {
+		color: #F682B1;
+	}
 }
 
-.nav > .navbar-nav {
-	ul {
-		li {
-			a {
-				color: white;
-			}
-		}
+.body-note {
+	@extend .body;
+
+	background: $bodyNoteBG;
+}
+
+.body-class {
+	@extend .body;
+	background: $bodyClassBG;
+
+}
+
+.body-gpa {
+	@extend .body;
+	background: $bodyGPABG;
+
+}
+
+#navbar-collapse {
+	a {
+		color: $linkColor;
+		
 	}
+
+	a:hover {
+		color: $hoverColor;
+	}
+
+}
+
+#navbar-logo {
+	
+	a {
+		color: $logoColor;
+		font-size: 36px;
+		font-family: cursive;
+		font-weight: bold;
+
+	}
+
+	a:hover {
+		color: $hoverColor;
+	}
+}
+
+#nav-head {
+	background-color: $navbarColor;
 }
 
 .footer {
@@ -38,7 +96,7 @@
 	width: 100%;
 	bottom: 0;
 	padding: 1%;
-	background: black;
+	background: $footerColor;
 	color: white;
 	text-align: center;
 	li {

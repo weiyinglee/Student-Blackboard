@@ -2,12 +2,11 @@
 <%= render "navbar" %>
 
 <!-- CONTENT -->
-<div class="body">
-	<h1>NOTE</h1>
+<div class="body-note">
 	<!-- Class setup row -->
 	<div class="row">
 		<!-- Input fields -->
-		<div class="col-md-5">
+		<div class="col">
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<!-- No SAVING into db yet. We are just sending inputs to routs:main/p_note.
@@ -29,19 +28,19 @@
 					</div>			
 					<div class="form-group">
 						<label for="content"><%= f.label :content, "Note" %></label>
-						<%= f.text_area :content , cols:  "20", rows: "20"  ,:class => "form-control", :id => "Note", :placeholder => "Note..." %>
+						<%= f.text_area :content , cols:  "10", rows: "10"  ,:class => "form-control", :id => "Note", :placeholder => "Note..." %>
 					</div>
 
 
-					<%= f.submit "Add Note", :class => "btn btn-primary" %>
+					<%= f.submit "Add Note", :class => "btn btn-warning" %>
 					<% end %>
 				</div>
 			</div>
 		</div>
-
-
-		<div class="col-md-7">
-			<div class="panel panel-info">
+	</div>
+	<div class="row">
+		<div class="col">	
+			<div class="panel panel-warning">
 				<div class="panel-heading">My Classes</div>
 				<div class="panel-body">
 					<table class="table">  				
@@ -74,6 +73,7 @@
 				</div>
 			</div>
 		</div>
+
 	</div>
 </div>
 
