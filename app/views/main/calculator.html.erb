@@ -18,24 +18,23 @@
 					  	<% @bool = false %>
 					  	
 					  	<%= form_tag(url: '/main/gpa_calculator', :method => 'get' ) do %>
-						  	
 						  	<!-- Class Name -->
 						  	<% @schedules.each do |schedule| %>
 							  	<% if schedule.user == @user.account %>
 								  	<li>
-								  		<span class="class-info"><%= schedule.classname %></span>
-								  		<%= text_field_tag :"grade#{@temp_count}", nil, :placeholder => "Type A, B, C, D, or F" %>
+								  		<div class="form-group">
+									  		<label><%= schedule.classname %></label>
+									  		<%= text_field_tag :"grade#{@temp_count}", nil, :class => "form-control", :placeholder => "Type A, B, C, D, or F" %>
 
-								  		<% @temp_grades << params[:"grade#{@temp_count}"] %>
-								  		<% @temp_count = @temp_count + 1 %>
+									  		<% @temp_grades << params[:"grade#{@temp_count}"] %>
+									  		<% @temp_count = @temp_count + 1 %>
+								  		</div>
 								  	</li>
 							  	<% end %>
 							<% end %>
 						  	
 						  	<!-- button gpa -->
-						  	<div class="panel-body">
-						  		<%= submit_tag 'Calaulate!', :class => "btn btn-primary" %>
-						  	</div>
+						  	<%= submit_tag 'Calaulate!', :class => "btn btn-primary" %>
 					  	<% end %>
 					</div> 
 	  			</div>
@@ -54,7 +53,9 @@
 				  		<% end %>
 				  		
 				  		<% if @bool == true %>
-				  			<%= @gpa %>
+				  			<%= @gpa %> / 4.0
+				  		<% else %>
+				  			0.0 / 4.0
 				  		<% end %>
 			  		</span>	  				
 	  			</div>

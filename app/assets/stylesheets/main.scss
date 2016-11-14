@@ -8,9 +8,14 @@ $linkColor: white;
 $logoColor: white;
 $hoverColor: yellow;
 $bodyBG: #EFF9D4;
-$bodyNoteBG: #F9D4E3;
+$bodyNoteBG: #ffffcc;
 $bodyClassBG: #EFF9D4;
 $bodyGPABG: #e6f3ff;
+
+#greet {
+	background: white;
+	border: 1px solid black;
+}
 
 .schedule-header {
 	color: green;
@@ -35,7 +40,7 @@ $bodyGPABG: #e6f3ff;
 
 .body {
 	height: 100%;
-	margin: 3%;
+	margin: 1%;
 	margin-bottom: 250px;
 
 	.form-group {
@@ -59,6 +64,7 @@ $bodyGPABG: #e6f3ff;
 
 	.page-title {
 		color: #F682B1;
+		font-weight: bold;
 	}
 }
 
@@ -77,8 +83,9 @@ $bodyGPABG: #e6f3ff;
 .body-gpa {
 	@extend .body;
 	background: $bodyGPABG;
+	padding-top: 3%;
 	#gpa-result {
-		font-size: 48px;
+		font-size: 36px;
 		font-weight: bold;
 		text-align: center;
 	}
