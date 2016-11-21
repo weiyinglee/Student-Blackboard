@@ -98,7 +98,7 @@ class MainController < ApplicationController
 			@numbered_grades << @numbered_grade
 			@total = @total + @numbered_grade
 		end
-		@gpa = @total / @total_grades
+		@gpa = (@total / @total_grades).round(2)
 	end
 
 	'''
