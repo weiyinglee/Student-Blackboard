@@ -45,7 +45,7 @@ class MainController < ApplicationController
 
 	# DELETE for class schedule
 	def schedule_destroy
-		@schedule = Schedule.find(params[:schedule][:id])
+		@schedule = Schedule.find(params[:id])
 		@schedule.destroy
 		redirect_to '/main/class_schedule'
 	end

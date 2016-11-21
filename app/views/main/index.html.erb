@@ -12,47 +12,38 @@
 	<div class="row">
 		<!-- Schedule Column -->
 		<div class="col-md-6">
-			<!-- <div class="panal panel-primary"> -->
-				<!-- <div class="panel-body"> -->
-					<div class="page-header">
-						<h1 class="page-title">Schedule</h1>
-					</div>
-					<div class="column-content">
-						<ul>
-							 <!-- Loop all the schedule in database -->
-							 <% @schedules.each do |schedule| %>
-									 <!-- use if statement to filter out the logged in user's schedule but not other ppl's -->
-									 <% if schedule.user == @user.account %>
-											<li><span class="item-name"><%= schedule.classname %></span></li>
-									 <% end %>
+			<div class="page-header">
+				<h1 class="page-title">Schedule</h1>
+			</div>
+			<div class="column-content">
+				<ul>
+					 <!-- Loop all the schedule in database -->
+					 <% @schedules.each do |schedule| %>
+							 <!-- use if statement to filter out the logged in user's schedule but not other ppl's -->
+							 <% if schedule.user == @user.account %>
+									<li><span class="item-name"><%= schedule.classname %></span></li>
 							 <% end %>
-					 	</ul>
-					</div>
-				<!-- </div> -->
-			<!-- </div> -->
+					 <% end %>
+			 	</ul>
+			</div>
 		</div>
 
 		<!-- Note Column -->
 		<div class="col-md-6">
-			
-			<!-- <div class="panel panel-default"> -->
-				<!-- <div class="panel-body"> -->
-					<div class="page-header">
-						<h1 class="page-title">Personal Note</h1>
-					</div>
-					<div class="column-content">
-						<ul>
-							 <!-- Loop all the schedule in database -->
-							 <% @notes.each do |note| %>
-									 <!-- use if statement to filter out the logged in user's schedule but not other ppl's -->
-									 <% if note.user == @user.account %>
-											<li><span class="item-name"><%= note.content %></span></li>
-									 <% end %>
+			<div class="page-header">
+				<h1 class="page-title">Personal Note</h1>
+			</div>
+			<div class="column-content">
+				<ul>
+					 <!-- Loop all the schedule in database -->
+					 <% @notes.each do |note| %>
+							 <!-- use if statement to filter out the logged in user's schedule but not other ppl's -->
+							 <% if note.user == @user.account %>
+									<li><span class="item-name"><%= note.content %></span></li>
 							 <% end %>
-						</ul>
-					</div>
-				<!-- </div> -->
-			<!-- </div> -->
+					 <% end %>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
