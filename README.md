@@ -1,24 +1,12 @@
-# README
+# Student BlackBoard
+This is a tool for students or any user to manage their class schedules, taking notes, and calculate GPA.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is made by using `Ruby on Rails` framework.
 
-Things you may want to cover:
+## Instructions
+1. Have ruby installed on the machine
+2. Install Ruby on rails: `$ gem install rails`
+3. Run the project: `$ rails server`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Credits
+Max Kim, Shun Lu
